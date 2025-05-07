@@ -135,6 +135,7 @@ echo password_hash('TwojeNoweHasło', PASSWORD_DEFAULT);
 ```
 
 Skrypt ten należy uruchomić lokalnie (np. w localhost/gen.php) i wkleić wynik jako wartość pola password w configx.json.
+
 Jeśli nie chcesz korzystać z panelu debugowania, usuń lub zakomentuj tę linię z końca `add.php`:
 
 ```php
