@@ -1,0 +1,70 @@
+[
+    {
+        "id": "tab-bielizna-sportowa",
+        "label": "Bielizna sportowa",
+        "items": [
+            {
+                "id": "item-008",
+                "title": "Dlaczego warto nosić bieliznę sportową?",
+                "description": "Rola specjalistycznej bielizny podczas aktywności fizycznej.",
+                "tags": [
+                    "bielizna sportowa",
+                    "trening",
+                    "komfort",
+                    "pot"
+                ],
+                "tresc": "Bielizna sportowa jest zaprojektowana z myślą o aktywności fizycznej – odprowadza wilgoć, zapewnia wsparcie i zmniejsza ryzyko otarć. Warto wybierać produkty z materiałów oddychających, takich jak mikrofibra czy coolmax. Dobrze dobrany biustonosz sportowy chroni biust przed przeciążeniami.",
+                "data_dodania": "2025-05-06",
+                "data_aktualizacji": "2025-05-06"
+            },
+            {
+                "id": "item-009",
+                "title": "Jak dobrać sportowy biustonosz?",
+                "description": "Wskazówki dla kobiet trenujących regularnie.",
+                "tags": [
+                    "biustonosz sportowy",
+                    "dopasowanie",
+                    "wsparcie",
+                    "fitness"
+                ],
+                "tresc": "Wybierając sportowy stanik, należy zwrócić uwagę na stopień wsparcia (niski, średni, wysoki), który zależy od rodzaju aktywności. Bieganie wymaga mocnego trzymania, joga – lekkiego. Biustonosz powinien być dopasowany, nie przesuwać się i nie uciskać. Modele z szerokimi ramiączkami i miękkimi miseczkami są bardziej komfortowe.",
+                "data_dodania": "2025-05-06",
+                "data_aktualizacji": "2025-05-06"
+            }
+        ]
+    },
+    {
+        "id": "tab-sezonowa-pielegnacja",
+        "label": "Sezonowa pielęgnacja",
+        "items": [
+            {
+                "id": "item-010",
+                "title": "Pielęgnacja ciała latem",
+                "description": "Jak chronić i pielęgnować skórę w czasie upałów?",
+                "tags": [
+                    "lato",
+                    "ochrona UV",
+                    "lekka pielęgnacja",
+                    "opalanie"
+                ],
+                "tresc": "Latem skóra potrzebuje ochrony przed słońcem i odpowiedniego nawodnienia. Używaj kremów z filtrem SPF 30+, lekkich balsamów chłodzących oraz kosmetyków łagodzących po opalaniu. Unikaj gorących kąpieli i nadmiernej ekspozycji na słońce.",
+                "data_dodania": "2025-05-06",
+                "data_aktualizacji": "2025-05-06"
+            },
+            {
+                "id": "item-011",
+                "title": "Zimowa pielęgnacja skóry",
+                "description": "Jak dbać o ciało, gdy temperatura spada?",
+                "tags": [
+                    "zima",
+                    "suche powietrze",
+                    "nawilżanie",
+                    "regeneracja"
+                ],
+                "tresc": "Zimą skóra traci więcej wilgoci przez ogrzewanie i niskie temperatury. Używaj bogatych kremów ochronnych, olejków do kąpieli i balsamów z ceramidami. Ogranicz gorące prysznice, które mogą dodatkowo wysuszać skórę. Regularne stosowanie maseł do ciała zapewnia elastyczność i komfort.",
+                "data_dodania": "2025-05-06",
+                "data_aktualizacji": "2025-05-06"
+            }
+        ]
+    }
+]
