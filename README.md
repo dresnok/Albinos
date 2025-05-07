@@ -23,7 +23,6 @@ Prosty edytor danych JSON oparty o Vue 3 z możliwością przeglądania i edycji
 │   ├───css/                  ← Style CSS (np. add.css)
 │   └───user/                 ← Konfiguracja kont użytkowników
 │           config.json
-│           configx.json 		
 │
 ├───data/
 │       dane.json             ← Główny plik danych
@@ -109,22 +108,40 @@ Po uruchomieniu `add_note/add.php` otrzymujemy pełny edytor danych `dane.json`.
 
 ---
 
-## 🔐 Dostęp i debugowanie
+## 🔧 Personalizacja wyświetlanych danych
 
-Edytor posiada opcjonalny **panel debugowania** z podglądem logów, historii, kosza i archiwum:
+Każdy element treści (np. temat, opis, tagi, data) możesz tymczasowo wyłączyć, stosując komentarz HTML (`<!-- -->`) w pliku `index.php`.
 
-- plik: `add_note/debug_panel.php`
-- logi: `add_note/debug.log`
-- konfiguracja użytkownika: `add_note/user/config.json`
+### Przykład — ukrycie opisu:
 
-### Tworzenie konta
-Jeśli panel logowania jest aktywny, można utworzyć konto przy użyciu hasła `rootPassword`. Domyślne hasło to:
+```html
+<div v-for="note in selectedTab?.items || []" :key="note.id" class="note">
+  <h4>{{ note.title }}</h4>
+  <!-- <p><strong>Opis:</strong> {{ note.description || '—' }}</p> -->
+  <p><strong>Tagi:</strong> {{ formatTags(note.tags) }}</p>
+  <div class="meta">
+    <span>Dodano: {{ note.data_dodania }}</span><br />
+    <span>Aktualizacja: {{ note.data_aktualizacji }}</span>
+  </div>
+  <p>{{ note.tresc }}</p>
+</div>
+```
+
+Dzięki temu możesz łatwo sterować tym, co widzi użytkownik końcowy — bez usuwania kodu.
+
+---
+
+## 🔐 Tworzenie konta
+
+Jeśli panel logowania jest aktywny, można utworzyć konto przy użyciu hasła **`rootPassword`**.  
+Domyślne hasło to:
 
 ```
-temp123
+deko12
 ```
 
-Po utworzeniu konta zaleca się zmianę hasła "rootPassword" w `add_note/user/configx.json`.
+Po utworzeniu konta zaleca się zmianę tego hasła w pliku `add_note/user/configx.json`.
+
 Można to zrobić za pomocą poniższego skryptu PHP:
 
 ```php
@@ -134,9 +151,22 @@ echo password_hash('TwojeNoweHasło', PASSWORD_DEFAULT);
 ?>
 ```
 
-Skrypt ten należy uruchomić lokalnie (np. w localhost/gen.php) i wkleić wynik jako wartość pola password w configx.json.
+Skrypt ten możesz uruchomić lokalnie (np. otwierając w przeglądarce plik gen.php).  
+Następnie wklej wynik w miejsce hasła w `configx.json`.
 
-Jeśli nie chcesz korzystać z panelu debugowania, usuń lub zakomentuj tę linię z końca `add.php`:
+---
+
+### 🧪 Panel debugowania
+
+Edytor zawiera dodatkowy panel debugowania (`debug_panel.php`) z podglądem:
+
+- logów (`debug.log`)
+- historii działań
+- zawartości kosza (`trash/`)
+- archiwum (`arch/`)
+- zarządzania kontami użytkowników
+
+Jeśli nie chcesz korzystać z panelu debugowania, usuń lub zakomentuj tę linię z końca pliku `add.php`:
 
 ```php
 <?php include 'debug_panel.php'; ?>
