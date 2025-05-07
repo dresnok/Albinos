@@ -118,13 +118,13 @@ Edytor posiada opcjonalny **panel debugowania** z podglądem logów, historii, k
 - konfiguracja użytkownika: `add_note/user/config.json`
 
 ### Tworzenie konta
-Jeśli panel logowania jest aktywny, można utworzyć konto przy użyciu hasła `root`. Domyślne hasło to:
+Jeśli panel logowania jest aktywny, można utworzyć konto przy użyciu hasła `rootPassword`. Domyślne hasło to:
 
 ```
 temp123
 ```
 
-Po utworzeniu konta zaleca się zmianę hasła "root" w `add_note/user/configx.json`.
+Po utworzeniu konta zaleca się zmianę hasła "rootPassword" w `add_note/user/configx.json`.
 Można to zrobić za pomocą poniższego skryptu PHP:
 
 ```php
