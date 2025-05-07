@@ -23,6 +23,7 @@ Prosty edytor danych JSON oparty o Vue 3 z możliwością przeglądania i edycji
 │   ├───css/                  ← Style CSS (np. add.css)
 │   └───user/                 ← Konfiguracja kont użytkowników
 │           config.json
+│           configx.json
 │
 ├───data/
 │       dane.json             ← Główny plik danych
