@@ -1,9 +1,20 @@
-# 📜 CHANGELOG
+# 🧾 CHANGELOG  
+Historia zmian i nowości w aplikacji **Albinos**.  
+Najnowsze wersje znajdują się na górze.
 
-Rejestr zmian w projekcie edytora JSON – uporządkowany chronologicznie według wersji i typu.
+### 🔥 ver-finalna-testowa.1.13.1a-3  
+**Data:** 2025-05-19  
+**Status:** Aktualizacja funkcjonalna  
 
+- Dodano przyciski do szybkiego formatowania tekstu w `textarea` (pogrubienie, cytat, nagłówek itp.)  
+- Poprawiono czytelność i zwiększono rozmiar obszaru edycji `textarea`  
+- Usprawniono mechanizm zapisu archiwum (`saveExisting`)  
+- Dodano możliwość dodawania zdjęć i ich wyświetlania na stronie głównej  
+- Wprowadzono system etykiet specjalnych (unikatowe `klucz: "tak"`)  
+- Dodano nowy zestaw ikon do interfejsu (shadcn/ui + iconify)  
+- Przygotowano wersję demonstracyjną:  
+  [http://asperion24.eu/github/albinos/1.13.1a-3/](http://asperion24.eu/github/albinos/1.13.1a-3/)
 
-## 📦 Wersje
 
 ### 🔹 ver-testowa.1.12.1a-1  
 _Data:_ 2024-05-07  
