@@ -1,34 +1,70 @@
 # Edytor danych JSON z zakładkami (Vue 3)
 
-Prosty edytor danych JSON oparty o Vue 3 z możliwością przeglądania i edycji treści poprzez zakładki (`tabs`). Kod pozwala w łatwy sposób modyfikować plik `dane.json` (dodawanie, edytowanie, usuwanie tematów), a interfejs użytkownika można elastycznie dostosować do preferowanego układu menu (poziomego lub pionowego) – jedynie przez zmianę klas CSS.
+Prosty edytor danych JSON oparty o Vue 3 wraz z przykładami zastosowania. Kod pozwala w łatwy sposób modyfikować plik `dane.json` (dodawanie, edytowanie, usuwanie tematów), a interfejs użytkownika można elastycznie dostosować do preferowanego układu menu (poziomego lub pionowego) – jedynie przez zmianę klas CSS.
 
 ---
 
+## 🌐 Wersja demonstracyjna
+
+Przykład filtracji danych:
+[http://asperion24.eu/github/albinos/1.13.1a-2/](http://asperion24.eu/github/albinos/1.13.1a-2/)
+[http://asperion24.eu/github/albinos/1.13.1a-2/add_note/add.php](http://asperion24.eu/github/albinos/1.13.1a-2/add_note/add.php)
+
+---
 ## 📁 Struktura projektu
 
 ```
-│   index.php                  ← Strona przeglądu JSON
+│   debug.log
+│   index.php
+│   log.php
 │
-├───add_note/                 ← Główny folder edytora
-│   │   add.php               ← Interfejs edycji JSON
-│   │   debug_panel.php       ← Panel debugowania i użytkowników
-│   │   login.php             ← Logowanie użytkowników
-│   │   register.php          ← Rejestracja konta
-│   │   save.php              ← Zapis danych do JSON
-│   │   edit_tabs.php         ← Operacje na zakładkach
-│   │   log.php               ← Zapis dziennika działań
-│   │   ...
-│   ├───arch/                 ← Archiwum tematów
-│   ├───trash/                ← Kosz (usunięte wpisy)
-│   ├───css/                  ← Style CSS (np. add.css)
-│   └───user/                 ← Konfiguracja kont użytkowników
+├───add_note
+│   │   add.php
+│   │   archi.php
+│   │   auth.php
+│   │   backup_data.php
+│   │   debug.log
+│   │   debug_panel.php
+│   │   debug_vue_app.js
+│   │   edit_tabs.php
+│   │   gen.php
+│   │   log.php
+│   │   log.txt
+│   │   login.php
+│   │   README.md
+│   │   register.php
+│   │   save.php
+│   │   upload_images.php
+│   │
+│   ├───arch
+│   ├───css
+│   │       add.css
+│   │       debug_log_panel.css
+│   │
+│   ├───src
+│   │       icons.js
+│   │
+│   ├───trash
+│   └───user
 │           config.json
 │           configx.json
 │
-├───data/
-│       dane.json             ← Główny plik danych
+├───data
+│       dane.json
 │
-└───tools/                    ← Dodatkowe narzędzia (opcjonalnie)
+└───img
+    └───all_images
+            2024-11-05_083955829_Storrada Lub_SkillUp.png
+            2024-11-05_084050548_Storrada Lub_LevelUp.png
+            2024-11-05_084109496_Storrada Lub_SkillUp.png
+            2024-11-05_110047830_Storrada Lub_LevelUp.png
+            2024-11-05_110331149_Storrada Lub_SkillUp.png
+            2024-11-05_111155592_Storrada Lub_LevelUp.png
+            2024-11-05_111532806_Storrada Lub_SkillUp.png
+            2024-11-05_111654584_Storrada Lub_SkillUp.png
+            2024-11-06_010653235_Storrada Lub_LevelUp.png
+            2024-11-06_011524629_Storrada Lub_SkillUp.png
+
 ```
 
 ---
@@ -46,53 +82,30 @@ Prosty edytor danych JSON oparty o Vue 3 z możliwością przeglądania i edycji
 
 ---
 
-## 🖼️ Wygląd i układ menu
+## Dostęp do json
+Plik z danymi znajduje się pod ścieżką: data/dane.json
 
-Układ menu (zakładek) możesz ustawić w HTML, zmieniając klasę głównego kontenera:
-
-```html
-<div id="app" class="menu-horizontal">
 ```
-
-Dostępne układy (obsługiwane przez CSS):
-
-- `menu-horizontal` – menu zakładek u góry
-- `menu-vertical-left` – menu pionowe po lewej stronie
-- `menu-vertical-right` – menu pionowe po prawej stronie
-
-### Przykład stylów:
-
-```css
-#app.menu-horizontal {
-  flex-direction: column;
-}
-
-.menu-horizontal .top-bar {
-  flex-direction: row;
-  flex-wrap: wrap;
+{
+  "id": "zakladka-01",
+  "label": "Ekspowiska",
+  "items": [
+    {
+      "id": "item-001",
+      "title": "Łatwo dostępne expowisko",
+      "description": "Fog Fury Forest",
+      "tags": ["carlin", "expowisko"],
+      "tresc": "<p>Opis miejsca expienia...</p>",
+      "data_dodania": "2025-05-15",
+      "data_aktualizacji": "2025-05-19",
+      "ss": "tak",
+      "ważne": "tak"
+    }
+  ]
 }
 ```
 
----
-
-## ✏️ Opis działania
-
-### Zakładki (`tabs`)
-Zakładki są wczytywane z pliku `data/dane.json`, a ich etykiety (`label`) są automatycznie renderowane jako przyciski:
-
-```html
-<button
-  v-for="tab in tabs"
-  :key="tab.id"
-  @click="selectTab(tab)"
-  :class="{ active: selectedTab && selectedTab.id === tab.id }"
->
-  {{ tab.label }}
-</button>
-```
-
-### Treść zakładki (`items`)
-Po kliknięciu zakładki, zawartość `items` danej zakładki jest wyświetlana dynamicznie w bloku `.content`.
+Możesz tworzyć wiele zakładek, a w każdej z nich wiele tematów. Każdy temat może zawierać dodatkowe etykiety (np. "ss": "tak", "ważne": "tak"), które są oznaczeniami użytkownika – używane np. do filtrowania ważnych lub specjalnych wpisów.
 
 ---
 
@@ -116,16 +129,11 @@ Każdy element treści (np. temat, opis, tagi, data) możesz tymczasowo wyłącz
 ### Przykład — ukrycie opisu:
 
 ```html
-<div v-for="note in selectedTab?.items || []" :key="note.id" class="note">
-  <h4>{{ note.title }}</h4>
-  <!-- <p><strong>Opis:</strong> {{ note.description || '—' }}</p> -->
-  <p><strong>Tagi:</strong> {{ formatTags(note.tags) }}</p>
-  <div class="meta">
-    <span>Dodano: {{ note.data_dodania }}</span><br />
-    <span>Aktualizacja: {{ note.data_aktualizacji }}</span>
-  </div>
-  <p>{{ note.tresc }}</p>
-</div>
+     <ul>
+        <li v-for="tag in uniqueTags" :key="'tag-' + tag" @click="selectTag(tag)">
+          {{ tag }}
+        </li>
+      </ul>
 ```
 
 Dzięki temu możesz łatwo sterować tym, co widzi użytkownik końcowy — bez usuwania kodu.
