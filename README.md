@@ -8,7 +8,7 @@ Prosty edytor danych JSON oparty o Vue 3 wraz z przykładami zastosowania. Kod p
 
 Przykład filtracji danych:  
 [http://asperion24.eu/github/albinos/1.13.1a-2/](http://asperion24.eu/github/albinos/1.13.1a-2/)  
-Panel edycji json: 
+Panel edycji json:  
 [http://asperion24.eu/github/albinos/1.13.1a-2/add_note/add.php](http://asperion24.eu/github/albinos/1.13.1a-2/add_note/add.php)
 
 ---
